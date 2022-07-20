@@ -24,7 +24,7 @@ export default function All() {
                 userId: user.userId
             })
         }).then(res => res.json()).then(data => {
-            alert('Task Added')
+
             window.location.reload()
         })
     }

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { RiEditLine } from 'react-icons/ri'
 import { BiArchive } from 'react-icons/bi'
 import { FaRegStar, FaStar } from 'react-icons/fa'
 
 export default function PriorityTasks({ priorProp }) {
+
+    const [onEdit, setOnEdit] = useState(false)
+    const [editedTask, setEditedTask] = useState('')
 
 
     function remove(e) {
@@ -56,32 +59,67 @@ export default function PriorityTasks({ priorProp }) {
         })
     }
 
+    function edit() {
+        setOnEdit(true)
+    }
+
+    function update() {
+        if (editedTask == '') {
+            setOnEdit(false)
+        }
+        else {
+            setOnEdit(false)
+            fetch('http://localhost:4000/todo/update', {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: priorProp._id,
+                    task: editedTask
+                })
+            }).then(res => res.json()).then(data => {
+                window.location.reload()
+            })
+        }
+    }
+
     return (
         <div className="card">
-            {priorProp.archived ?
-                <p className='archived'>{priorProp.task}</p>
-                :
+            {
+                onEdit ?
+                    <input type="text" className='edittask' placeholder={priorProp.task} value={editedTask} onChange={e => setEditedTask(e.target.value)} />
 
-                priorProp.priority ?
-                    <p className='priority'>{priorProp.task}</p>
                     :
 
+                    priorProp.archived ?
+                        <p className='archived'>{priorProp.task}</p>
+                        :
 
-                    <p>{priorProp.task}</p>
+                        priorProp.priority ?
+                            <p className='priority'>{priorProp.task}</p>
+                            :
+
+
+                            <p>{priorProp.task}</p>
             }
 
 
             <div className="functions">
-                {priorProp.priority ?
-                    <FaStar className='icon prio' onClick={prio} />
+                {onEdit ?
+                    <button onClick={update}>Update</button>
                     :
-                    <FaRegStar className='icon prio' onClick={prio} />
+                    <Fragment>
+                        {priorProp.priority ?
+                            <FaStar className='icon prio' onClick={prio} />
+                            :
+                            <FaRegStar className='icon prio' onClick={prio} />
+                        }
+                        <RiEditLine className='icon edit' onClick={edit} />
+                        <BiArchive className='icon arc' onClick={archive} />
+                        <AiOutlineDelete className='icon delete' onClick={remove} />
+                    </Fragment>
                 }
-
-
-                <RiEditLine className='icon edit' />
-                <BiArchive className='icon arc' onClick={archive} />
-                <AiOutlineDelete className='icon delete' onClick={remove} />
             </div>
 
         </div>
