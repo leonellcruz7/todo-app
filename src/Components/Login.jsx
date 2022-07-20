@@ -61,7 +61,7 @@ export default function Login() {
                         token: data.access
                     })
                     alert('Login Successful')
-                    navigate('/all')
+                    navigate('/')
                 })
 
             }
