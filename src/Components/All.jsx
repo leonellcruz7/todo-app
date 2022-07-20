@@ -69,7 +69,7 @@ export default function All() {
             </div>
             <div className="addtask">
                 <div className="card">
-                    <input type="text" value={task} onChange={e => setTask(e.target.value)} />
+                    <textarea type="text" value={task} onChange={e => setTask(e.target.value)} />
                     {active ?
                         <button onClick={addtask}>Add task</button>
                         :

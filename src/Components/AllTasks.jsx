@@ -35,7 +35,23 @@ export default function AllTasks({ taskProp }) {
                 priority: !taskProp.priority
             })
         }).then(res => res.json()).then(data => {
-            console.log(data)
+
+            window.location.reload()
+        })
+    }
+
+    function archive() {
+        fetch('http://localhost:4000/todo/archive', {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: taskProp._id,
+                archived: !taskProp.archived
+            })
+        }).then(res => res.json()).then(data => {
+
             window.location.reload()
         })
     }
@@ -44,7 +60,19 @@ export default function AllTasks({ taskProp }) {
         <div className="row">
             <div className="col1">
                 <div className="card">
-                    <p>{taskProp.task}</p>
+                    {taskProp.archived ?
+                        <p className='archived'>{taskProp.task}</p>
+                        :
+
+                        taskProp.priority ?
+                            <p className='priority'>{taskProp.task}</p>
+                            :
+
+
+                            <p>{taskProp.task}</p>
+                    }
+
+
                     <div className="functions">
                         {taskProp.priority ?
                             <FaStar className='icon prio' onClick={prio} />
@@ -54,7 +82,7 @@ export default function AllTasks({ taskProp }) {
 
 
                         <RiEditLine className='icon edit' />
-                        <BiArchive className='icon arc' />
+                        <BiArchive className='icon arc' onClick={archive} />
                         <AiOutlineDelete className='icon delete' onClick={remove} />
                     </div>
 
