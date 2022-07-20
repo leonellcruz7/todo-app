@@ -9,10 +9,10 @@ export default function Logout() {
     useEffect(() => {
         localStorage.clear()
         setUser({
-            firstName: '',
-            lastName: '',
-            email: '',
-            token: ''
+            firstName: null,
+            lastName: null,
+            email: null,
+            token: null
         })
 
         navigate('/login')
