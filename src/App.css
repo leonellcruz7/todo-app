@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Edu+TAS+Beginner:wght@500;700&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.lgCon {
+  width: 100%;
+}
+
+.mdCon {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.smCon {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.minirow {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.col1 {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col2 {
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col3 {
+  flex-basis: 33%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col4 {
+  flex-basis: 25%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col5 {
+  flex-basis: 20%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col6 {
+  flex-basis: 16%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.app {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.all {
+  display: flex;
+
+}
+
+.menu {
+  flex-basis: 15%;
+}
+
+button {
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: rgb(11, 108, 153);
+  cursor: pointer;
+  color: #fff;
+}
+
+.inactive {
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: rgb(65, 65, 65);
+  cursor: pointer;
+  color: #fff;
+}
+
+.taken {
+  font-size: 13px;
+  color: rgb(133, 18, 37);
+}
+
+.hide {
+  display: none;
+}
+
+
+
+
+/* contentarea */
+@media {
+  .contentarea {
+    flex-basis: 85%;
   }
 }
+
+/* contentarea */

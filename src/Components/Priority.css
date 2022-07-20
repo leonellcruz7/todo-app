@@ -1,0 +1,37 @@
+.priority .title {
+
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.priority .label {
+    display: flex;
+    align-items: center;
+
+}
+
+.priority .tasklist .card {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(167, 167, 167);
+}
+
+.priority .tasklist .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.priority .functions .icon {
+    margin: 0 10px;
+}
+
+.priority .functions .edit {
+    color: rgb(11, 105, 61);
+}
+
+.priority .functions .delete {
+    color: brown;
+}

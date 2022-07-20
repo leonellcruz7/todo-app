@@ -1,0 +1,63 @@
+.register {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url('../img/doodle.png');
+
+}
+
+.register .form {
+
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.register .card {
+    display: flex;
+    flex-direction: column;
+    background: url('../img/paper.jpg');
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin: 30px;
+    width: 30%;
+    box-shadow: 0px 0px 45px 5px rgba(0, 0, 0, 0.3);
+    border: 3px solid #555;
+    background-size: cover;
+}
+
+.register .card input {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 7px;
+    outline: none;
+    border: 2px solid rgb(46, 46, 46);
+    background-color: #fff;
+}
+
+.register button {
+    width: 20%;
+    padding: 10px;
+}
+
+.register .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register .footer p {
+    font-size: 13px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register h2 {
+    color: rgb(43, 177, 103);
+}

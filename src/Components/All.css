@@ -1,0 +1,76 @@
+.alltask {
+
+    height: 100vh;
+
+}
+
+.alltask .title {
+
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+
+}
+
+.alltask .label {
+    display: flex;
+    align-items: center;
+
+}
+
+.alltask .tasklist {
+    margin: 20px;
+    overflow: scroll;
+    height: 75vh;
+    width: 100%;
+}
+
+.alltask .tasklist .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 10px 15px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    width: 90%;
+}
+
+.alltask .tasklist .card p {
+    width: 80%;
+}
+
+.alltask .functions .icon {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.alltask .functions .edit {
+    color: rgb(11, 105, 61);
+}
+
+.alltask .functions .delete {
+    color: brown;
+}
+
+.alltask .addtask {
+    margin: 20px;
+}
+
+.alltask .addtask .card {
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(216, 216, 216);
+    display: flex;
+    justify-content: space-between;
+}
+
+.alltask .addtask input {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 15px;
+    width: 92%;
+    font-size: 16px;
+}

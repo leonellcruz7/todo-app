@@ -1,0 +1,85 @@
+import React, { useContext, useEffect, useState } from 'react'
+import './All.css'
+import { BsCalendarCheck } from 'react-icons/bs'
+import { IoIosCreate } from 'react-icons/io'
+import UserContext from '../Components/UserContext'
+import AllTasks from './AllTasks'
+
+export default function All() {
+    const { user } = useContext(UserContext)
+    const [all, setAll] = useState(null)
+    const [task, setTask] = useState('')
+    const [active, setActive] = useState(false)
+
+    function addtask() {
+
+        fetch('http://localhost:4000/todo/create', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                Authorization: `Bearer ${user.token}`
+            },
+            body: JSON.stringify({
+                task: task,
+                userId: user.userId
+            })
+        }).then(res => res.json()).then(data => {
+            alert('Task Added')
+            window.location.reload()
+        })
+    }
+
+    useEffect(() => {
+        if (task !== '') {
+            setActive(true)
+        }
+        else {
+            setActive(false)
+        }
+    }, [task])
+
+    useEffect(() => {
+        fetch('http://localhost:4000/todo/getmytask', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${user.token}`
+            }
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+            setAll(data.map(task => {
+                return (
+                    <AllTasks key={task._id} taskProp={task} />
+                )
+            }))
+        })
+    }, [])
+
+
+    return (
+        <div className="alltask">
+            <div className="title">
+                <div className="row">
+                    <div className="col1">
+                        <div className="label">
+                            <BsCalendarCheck className='icon check' />
+                            <h2>All Tasks</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="addtask">
+                <div className="card">
+                    <input type="text" value={task} onChange={e => setTask(e.target.value)} />
+                    {active ?
+                        <button onClick={addtask}>Add task</button>
+                        :
+                        <button className='inactive' disabled>Add task</button>
+                    }
+                </div>
+            </div>
+            <div className="tasklist">
+                {all}
+            </div>
+        </div>
+    )
+}

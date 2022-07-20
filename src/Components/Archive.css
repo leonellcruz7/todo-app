@@ -1,0 +1,37 @@
+.archive .title {
+
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.archive .label {
+    display: flex;
+    align-items: center;
+
+}
+
+.archive .tasklist .card {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(167, 167, 167);
+}
+
+.archive .tasklist .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.archive .functions .icon {
+    margin: 0 10px;
+}
+
+.archive .functions .edit {
+    color: rgb(11, 105, 61);
+}
+
+.archive .functions .delete {
+    color: brown;
+}
