@@ -26,7 +26,7 @@ export default function Navbar() {
                         <div className="options hide">
                             <ul>
                                 <li>
-                                    <div className="title" onClick={() => navigate('/all')}>
+                                    <div className="title" onClick={() => navigate('/')}>
                                         <BsCalendarCheck className='icon check' />
                                         <h4>All</h4>
                                     </div>
@@ -61,7 +61,7 @@ export default function Navbar() {
                         <div className="options">
                             <ul>
                                 <li>
-                                    <div className="title" onClick={() => navigate('/all')}>
+                                    <div className="title" onClick={() => navigate('/')}>
                                         <BsCalendarCheck className='icon check' />
                                         <h4>All</h4>
                                     </div>

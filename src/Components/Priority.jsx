@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BsCalendarCheck } from 'react-icons/bs'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { RiEditLine } from 'react-icons/ri'
 import { BiArchive } from 'react-icons/bi'
 import { FaRegStar } from 'react-icons/fa'
 import './Priority.css'
+import UserContext from './UserContext'
+import PriorityTasks from './PriorityTasks'
 
 export default function Priority() {
+    const { user } = useContext(UserContext)
+
+    const [priority, setPriority] = useState(null)
+
+    useEffect(() => {
+        fetch('http://localhost:4000/todo/getpriority', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${user.token}`
+            }
+        }).then(res => res.json()).then(data => {
+            setPriority(data.map(prior => {
+                return (
+                    <PriorityTasks key={prior._id} priorProp={prior} />
+                )
+            }))
+        })
+    }, [])
     return (
         <div className="priority">
             <div className="title">
@@ -20,15 +40,7 @@ export default function Priority() {
                 </div>
             </div>
             <div className="tasklist">
-                <div className="card">
-                    <p>This is my task</p>
-                    <div className="functions">
-                        <FaRegStar className='icon prio' />
-                        <BiArchive className='icon arc' />
-                        <RiEditLine className='icon edit' />
-                        <AiOutlineDelete className='icon delete' />
-                    </div>
-                </div>
+                {priority}
 
             </div>
         </div>

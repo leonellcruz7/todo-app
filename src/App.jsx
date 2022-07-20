@@ -36,7 +36,7 @@ export default function App() {
               <Routes>
                 <Route path='/register' element={<Register />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/all' element={<All />} />
+                <Route path='/' element={<All />} />
                 <Route path='/priority' element={<Priority />} />
                 <Route path='/archive' element={<Archive />} />
                 <Route path='/logout' element={<Logout />} />
