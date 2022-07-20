@@ -7,6 +7,7 @@ import { FaRegStar } from 'react-icons/fa'
 import './Archive.css'
 import ArchivedTasks from './ArchivedTasks'
 import UserContext from './UserContext'
+import { Navigate } from 'react-router-dom'
 
 export default function Archive() {
 
@@ -15,7 +16,7 @@ export default function Archive() {
     const [archived, setArchived] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:4000/todo/getarchived', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/getarchived', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -29,21 +30,24 @@ export default function Archive() {
         })
     }, [])
     return (
-        <div className="archive">
-            <div className="title">
-                <div className="row">
-                    <div className="col1">
-                        <div className="label">
-                            <BiArchive className='icon arc' />
-                            <h2>Archived</h2>
+        (user.token == null) ?
+            <Navigate to='/login' />
+            :
+            <div className="archive">
+                <div className="title">
+                    <div className="row">
+                        <div className="col1">
+                            <div className="label">
+                                <BiArchive className='icon arc' />
+                                <h2>Archived</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="tasklist">
-                {archived}
+                <div className="tasklist">
+                    {archived}
 
+                </div>
             </div>
-        </div>
     )
 }

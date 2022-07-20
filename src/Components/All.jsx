@@ -4,6 +4,7 @@ import { BsCalendarCheck } from 'react-icons/bs'
 import { IoIosCreate } from 'react-icons/io'
 import UserContext from '../Components/UserContext'
 import AllTasks from './AllTasks'
+import { Navigate } from 'react-router-dom'
 
 export default function All() {
     const { user } = useContext(UserContext)
@@ -13,7 +14,7 @@ export default function All() {
 
     function addtask() {
 
-        fetch('http://localhost:4000/todo/create', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/create', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +40,7 @@ export default function All() {
     }, [task])
 
     useEffect(() => {
-        fetch('http://localhost:4000/todo/getmytask', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/getmytask', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -56,30 +57,36 @@ export default function All() {
 
 
     return (
-        <div className="alltask">
-            <div className="title">
-                <div className="row">
-                    <div className="col1">
-                        <div className="label">
-                            <BsCalendarCheck className='icon check' />
-                            <h2>All Tasks</h2>
-                        </div>
+        (user.token == null) ?
+            <Navigate to='/login' />
+            :
+
+
+            <div className="alltask">
+                <div className="title">
+                    <div className="row">
+                        <div className="col1">
+                            <div className="label">
+                                <BsCalendarCheck className='icon check' />
+                                < h2 > All Tasks</h2 >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <div className="addtask">
+                    <div className="card">
+                        <textarea type="text" value={task} onChange={e => setTask(e.target.value)} />
+                        {active ?
+                            <button onClick={addtask}>Add task</button>
+                            :
+                            <button className='inactive' disabled>Add task</button>
+                        }
                     </div>
                 </div>
-            </div>
-            <div className="addtask">
-                <div className="card">
-                    <textarea type="text" value={task} onChange={e => setTask(e.target.value)} />
-                    {active ?
-                        <button onClick={addtask}>Add task</button>
-                        :
-                        <button className='inactive' disabled>Add task</button>
-                    }
+                <div className="tasklist">
+                    {all}
                 </div>
-            </div>
-            <div className="tasklist">
-                {all}
-            </div>
-        </div>
+            </div >
+
     )
 }

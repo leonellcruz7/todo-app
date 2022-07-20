@@ -22,7 +22,7 @@ export default function Navbar() {
                     <BiMenuAltLeft className='icon' />
                 </div>
                 <div className="list">
-                    {(user.email == '') ?
+                    {(user.email == null) ?
                         <div className="options hide">
                             <ul>
                                 <li>
@@ -95,7 +95,7 @@ export default function Navbar() {
                     }
 
                     <div className="userlog">
-                        {(user.email == '') ?
+                        {(user.email == null) ?
                             <Fragment>
                                 <button onClick={() => navigate('/register')}>Register</button>
                                 <button onClick={() => navigate('/login')}>Login</button>

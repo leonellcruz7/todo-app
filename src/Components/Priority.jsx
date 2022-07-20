@@ -7,6 +7,7 @@ import { FaRegStar } from 'react-icons/fa'
 import './Priority.css'
 import UserContext from './UserContext'
 import PriorityTasks from './PriorityTasks'
+import { Navigate } from 'react-router-dom'
 
 export default function Priority() {
     const { user } = useContext(UserContext)
@@ -14,7 +15,7 @@ export default function Priority() {
     const [priority, setPriority] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:4000/todo/getpriority', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/getpriority', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -28,21 +29,24 @@ export default function Priority() {
         })
     }, [])
     return (
-        <div className="priority">
-            <div className="title">
-                <div className="row">
-                    <div className="col1">
-                        <div className="label">
-                            <FaRegStar className='icon prio' />
-                            <h2>Priority</h2>
+        (user.token == null) ?
+            <Navigate to='/login' />
+            :
+            <div className="priority">
+                <div className="title">
+                    <div className="row">
+                        <div className="col1">
+                            <div className="label">
+                                <FaRegStar className='icon prio' />
+                                <h2>Priority</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="tasklist">
-                {priority}
+                <div className="tasklist">
+                    {priority}
 
+                </div>
             </div>
-        </div>
     )
 }
