@@ -14,7 +14,7 @@ export default function All() {
 
     function addtask() {
 
-        fetch('http://localhost:4000/todo/create', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/create', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -40,7 +40,7 @@ export default function All() {
     }, [task])
 
     useEffect(() => {
-        fetch('http://localhost:4000/todo/getmytask', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/getmytask', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`

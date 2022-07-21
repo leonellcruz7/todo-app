@@ -24,7 +24,7 @@ export default function Register() {
     }, [email, pass, pass2, taken])
 
     useEffect(() => {
-        fetch('http://localhost:4000/users/checkemail', {
+        fetch('https://leonell-todo-app.herokuapp.com/users/checkemail', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ export default function Register() {
         e.preventDefault()
 
 
-        fetch('http://localhost:4000/users/register', {
+        fetch('https://leonell-todo-app.herokuapp.com/users/register', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

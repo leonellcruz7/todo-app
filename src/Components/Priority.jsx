@@ -15,7 +15,7 @@ export default function Priority() {
     const [priority, setPriority] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:4000/todo/getpriority', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/getpriority', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`

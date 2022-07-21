@@ -12,7 +12,7 @@ export default function PriorityTasks({ priorProp }) {
 
     function remove(e) {
 
-        fetch('http://localhost:4000/todo/delete', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/delete', {
             method: 'Delete',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ export default function PriorityTasks({ priorProp }) {
 
     function prio() {
 
-        fetch('http://localhost:4000/todo/prioritize', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/prioritize', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ export default function PriorityTasks({ priorProp }) {
     }
 
     function archive() {
-        fetch('http://localhost:4000/todo/archive', {
+        fetch('https://leonell-todo-app.herokuapp.com/todo/archive', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -69,7 +69,7 @@ export default function PriorityTasks({ priorProp }) {
         }
         else {
             setOnEdit(false)
-            fetch('http://localhost:4000/todo/update', {
+            fetch('https://leonell-todo-app.herokuapp.com/todo/update', {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'
