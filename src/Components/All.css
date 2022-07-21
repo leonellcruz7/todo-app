@@ -92,3 +92,88 @@
     border: 2px solid #555;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 1420px) {
+    .alltask .addtask input {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding: 5px 15px;
+        width: 85%;
+        font-size: 16px;
+        resize: none;
+        color: rgb(104, 104, 104);
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+
+
+    .label {
+        display: flex;
+        align-items: center;
+        transform: translateX(50px);
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .alltask .tasklist .card p {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .alltask .tasklist .card p {
+        width: 60%;
+
+    }
+
+    .alltask .functions .icon {
+        font-size: 25px;
+        margin: 0 5px;
+    }
+
+    .alltask .tasklist {
+        margin: 20px;
+        overflow: scroll;
+        height: 75vh;
+        width: 95%;
+    }
+
+    .alltask .addtask input {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding: 5px 15px;
+        width: 75%;
+        font-size: 16px;
+        resize: none;
+        color: rgb(104, 104, 104);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .alltask .tasklist .card p {
+        width: 40%;
+
+    }
+
+    .alltask .tasklist {
+        margin: 20px;
+        overflow: scroll;
+        height: 75vh;
+        width: 90%;
+    }
+
+    .alltask .addtask input {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding: 5px 15px;
+        width: 65%;
+        font-size: 16px;
+        resize: none;
+        color: rgb(104, 104, 104);
+    }
+}
