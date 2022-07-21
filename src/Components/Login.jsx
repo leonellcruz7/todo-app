@@ -26,7 +26,7 @@ export default function Login() {
     function login(e) {
         e.preventDefault()
 
-        fetch('https://leonell-todo-app.herokuapp.com/users/login', {
+        fetch('http://localhost:4000/users/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ export default function Login() {
             }
             else {
 
-                fetch('https://leonell-todo-app.herokuapp.com/users/details', {
+                fetch('http://localhost:4000/users/details', {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${data.access}`

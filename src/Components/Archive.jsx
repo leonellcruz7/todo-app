@@ -16,7 +16,7 @@ export default function Archive() {
     const [archived, setArchived] = useState(null)
 
     useEffect(() => {
-        fetch('https://leonell-todo-app.herokuapp.com/todo/getarchived', {
+        fetch('http://localhost:4000/todo/getarchived', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`

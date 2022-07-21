@@ -12,7 +12,7 @@ export default function ArchivedTasks({ arcProp }) {
 
     function remove(e) {
 
-        fetch('https://leonell-todo-app.herokuapp.com/todo/delete', {
+        fetch('http://localhost:4000/todo/delete', {
             method: 'Delete',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ export default function ArchivedTasks({ arcProp }) {
 
     function prio() {
 
-        fetch('https://leonell-todo-app.herokuapp.com/todo/prioritize', {
+        fetch('http://localhost:4000/todo/prioritize', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ export default function ArchivedTasks({ arcProp }) {
     }
 
     function archive() {
-        fetch('https://leonell-todo-app.herokuapp.com/todo/archive', {
+        fetch('http://localhost:4000/todo/archive', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -69,7 +69,7 @@ export default function ArchivedTasks({ arcProp }) {
         }
         else {
             setOnEdit(false)
-            fetch('https://leonell-todo-app.herokuapp.com/todo/update', {
+            fetch('http://localhost:4000/todo/update', {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'

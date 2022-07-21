@@ -14,7 +14,7 @@ export default function All() {
 
     function addtask() {
 
-        fetch('https://leonell-todo-app.herokuapp.com/todo/create', {
+        fetch('http://localhost:4000/todo/create', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -40,7 +40,7 @@ export default function All() {
     }, [task])
 
     useEffect(() => {
-        fetch('https://leonell-todo-app.herokuapp.com/todo/getmytask', {
+        fetch('http://localhost:4000/todo/getmytask', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -75,7 +75,7 @@ export default function All() {
                 </div >
                 <div className="addtask">
                     <div className="card">
-                        <textarea type="text" value={task} onChange={e => setTask(e.target.value)} />
+                        <input type="text" value={task} onChange={e => setTask(e.target.value)} />
                         {active ?
                             <button onClick={addtask}>Add task</button>
                             :

@@ -4,6 +4,12 @@
     flex-direction: column;
     justify-content: center;
     background: url('../img/doodle.png');
+
+}
+
+.login .row {
+    background-color: aqua;
+    width: 100%;
 }
 
 .login .form {
@@ -55,4 +61,64 @@
 .login form {
     display: flex;
     flex-direction: column;
+}
+
+@media only screen and (max-width:1300px) {
+    .login .card {
+        display: flex;
+        flex-direction: column;
+        background: url('../img/paper.jpg');
+        padding: 50px 20px;
+        border-radius: 10px;
+        margin: 30px;
+        width: 50%;
+        box-shadow: 0px 0px 45px 5px rgba(0, 0, 0, 0.3);
+        border: 3px solid #555;
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .login .card {
+        display: flex;
+        flex-direction: column;
+        background: url('../img/paper.jpg');
+        padding: 50px 20px;
+        border-radius: 10px;
+        margin: 30px;
+        width: 70%;
+        box-shadow: 0px 0px 45px 5px rgba(0, 0, 0, 0.3);
+        border: 3px solid #555;
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .login .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .login button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .login .card {
+        display: flex;
+        flex-direction: column;
+        background: url('../img/paper.jpg');
+        padding: 50px 20px;
+        border-radius: 10px;
+        margin: 30px;
+        width: 90%;
+        box-shadow: 0px 0px 45px 5px rgba(0, 0, 0, 0.3);
+        border: 3px solid #555;
+        background-size: cover;
+    }
 }

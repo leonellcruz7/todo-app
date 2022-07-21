@@ -17,9 +17,7 @@
     box-shadow: 0px 16px 43px 6px rgba(0, 0, 0, 0.2);
 }
 
-.icon {
-    font-size: 30px;
-}
+
 
 .icon {
     font-size: 30px;
@@ -80,4 +78,49 @@
     padding: 30px 5px;
     color: #fff;
     border-bottom: 1px solid rgb(63, 63, 63);
+}
+
+.mobilenav {
+    display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+    .navbar {
+        height: 100vh;
+        width: 220px;
+        position: fixed;
+        background-color: rgb(59, 59, 59);
+        overflow: visible;
+
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .mobilenav {
+        display: block;
+    }
+
+    .desktopnav {
+        display: none;
+    }
+
+
+
+    .mobilenav .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        color: #fff;
+        background-color: rgb(61, 61, 61);
+        box-shadow: 0px 16px 43px 6px rgba(0, 0, 0, 0.2);
+        width: 130%;
+    }
+
+    .mobilenav .logo .icon {
+        font-size: 30px;
+        margin: 0 0px;
+    }
+
+
 }

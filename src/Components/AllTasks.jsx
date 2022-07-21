@@ -8,11 +8,14 @@ export default function AllTasks({ taskProp }) {
 
     const [onEdit, setOnEdit] = useState(false)
     const [editedTask, setEditedTask] = useState('')
+    const [priority, setPriority] = useState(taskProp.priority)
+    const [archived, setArchived] = useState(taskProp.archived)
+    const [task, setTask] = useState(taskProp.task)
 
 
     function remove(e) {
 
-        fetch('https://leonell-todo-app.herokuapp.com/todo/delete', {
+        fetch('http://localhost:4000/todo/delete', {
             method: 'Delete',
             headers: {
                 'content-type': 'application/json'
@@ -27,7 +30,7 @@ export default function AllTasks({ taskProp }) {
 
     function prio() {
 
-        fetch('https://leonell-todo-app.herokuapp.com/todo/prioritize', {
+        fetch('http://localhost:4000/todo/prioritize', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -38,12 +41,12 @@ export default function AllTasks({ taskProp }) {
             })
         }).then(res => res.json()).then(data => {
 
-            window.location.reload()
+            setPriority(!priority)
         })
     }
 
     function archive() {
-        fetch('https://leonell-todo-app.herokuapp.com/todo/archive', {
+        fetch('http://localhost:4000/todo/archive', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +57,7 @@ export default function AllTasks({ taskProp }) {
             })
         }).then(res => res.json()).then(data => {
 
-            window.location.reload()
+            setArchived(!archived)
         })
     }
 
@@ -68,7 +71,7 @@ export default function AllTasks({ taskProp }) {
         }
         else {
             setOnEdit(false)
-            fetch('https://leonell-todo-app.herokuapp.com/todo/update', {
+            fetch('http://localhost:4000/todo/update', {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'
@@ -78,7 +81,7 @@ export default function AllTasks({ taskProp }) {
                     task: editedTask
                 })
             }).then(res => res.json()).then(data => {
-                window.location.reload()
+                setTask(editedTask)
             })
         }
 
@@ -94,16 +97,16 @@ export default function AllTasks({ taskProp }) {
 
                             :
 
-                            taskProp.archived ?
-                                <p className='archived'>{taskProp.task}</p>
+                            archived ?
+                                <p className='archived'>{task}</p>
                                 :
 
-                                taskProp.priority ?
-                                    <p className='priority'>{taskProp.task}</p>
+                                priority ?
+                                    <p className='priority'>{task}</p>
                                     :
 
 
-                                    <p>{taskProp.task}</p>
+                                    <p>{task}</p>
 
 
 
@@ -118,7 +121,7 @@ export default function AllTasks({ taskProp }) {
 
                             :
                             <Fragment>
-                                {taskProp.priority ?
+                                {priority ?
                                     <FaStar className='icon prio' onClick={prio} />
                                     :
                                     <FaRegStar className='icon prio' onClick={prio} />
